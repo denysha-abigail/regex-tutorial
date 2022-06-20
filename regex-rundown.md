@@ -1,12 +1,3 @@
-
-
-
-WHEN I read through each section of the tutorial
-THEN I find a detailed explanation of what a specific component of the regex does
-WHEN I reach the end of the tutorial
-THEN I find a section about the author and a link to the author’s GitHub profile
-
-
 # Regex Rundown
 
 Regular Expressions, or more commonly abbreviated as Regex, are powerful, case-sensitive patterns composed of single or a combination of single and special characters for the purpose of searching through and extracting information from text through matching, validating, locating, parsing, replacing, and/or managing target strings. 
@@ -33,11 +24,11 @@ To satisfy the password strength criteria, a password must contain:
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Bracket Expressions](#bracket-expressions)
 - [Greedy Match](#greedy-match)
-- [Positive Look-ahead](#positive-look-ahead)
+- [Positive Lookahead](#positive-lookahead)
 
 ## Regex Components
 
-### Anchors: ^
+### Anchors
 
 Anchors do not match any characters, but rather match a position before, after, or between characters. In single-line mode, the ```^``` anchor matches the beginning of the string.
 
@@ -45,7 +36,7 @@ An input of ```abc123``` would pass if tested against the expression ```/^abc/``
 
 In the case of the password strength validation Regex, the ```^``` is simply ensuring that a match is positioned at the start of the string. The anchor in this scenario is essentially determining that any syntax component succeeding will pass if inputted at the beginning of the string (whether it be a lowercase, uppercase, numeric, or special character).
 
-### Quantifiers: * {}
+### Quantifiers
 
 Quantifiers specify how many instances of a character, group, or character class an input must have in order for a match to be found. 
 
@@ -55,37 +46,37 @@ A quantifier of ```{8}``` would only match a password of exactly 8 characters in
 
 In the case of the password strength validation Regex, the ```{}``` quantifier (```{8,}```) matches a password that has AT LEAST 8 characters. 
 
-### Character Classes: .
+### Character Classes
 
 Character classes, or character sets, match any character in the set. 
 
 In the case of the password strength validation Regex, the ```.``` will match any character.
 
-### Grouping and Capturing: ()
+### Grouping and Capturing
 
 Capturing groups allow mulitple characters to be treated as single separate units by encapsulating them inside a set of parantheses. 
 
 In the case of the password strength validation Regex: ```^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})``` notice how the lowercase, uppercase, numeric, special character, and password length validations are all grouped inside their own set of parentheses. This allows more convenient access to the content of specific groups, if necessary.
 
-### Bracket Expressions: [ ]
+### Bracket Expressions
 
 Bracket expressions are composed of characters and/or character classes encompassed within brackets.
 
 In the case of the password strength validation Regex, bracket expressions include ```[a-z]``` and ```[A-Z]``` which match any character from lowercase ```a``` through ```z``` and uppercase ```A``` through ```Z```, respectively. The ```[!@#\$%\^&\*]``` will match any of the special characters within that set as well.
 
-### Greedy Match: .*
+### Greedy Match
 
 All quantifiers (```?```, ```*```, ```+```, ```{m,n}```) are recognized as greedy operators due to their default tendency of grasping as many characters as possible for a match.
 
 In the case of the password strength validation Regex, the ```.*``` before every bracket expression will try to match any amount of anything.
 
-### Positive Look-ahead: (?=pattern)
+### Positive Look-ahead
 
 Positive look-aheads are used after a ```^``` anchor in order to validate a condition by triggering each look-ahead one by one at the beginning of the string. 
 
 In the case of the password strength validation Regex, the ```(?=.*[A-Z])``` for example, matches that the password must contain at least one uppercase ASCII letter after any zero or more characters. 
 
-### Resources
+## Resources
 * https://regexr.com/
 * https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285
 * https://www.thepolyglotdeveloper.com/2015/05/use-regex-to-test-password-strength-in-javascript/
@@ -98,4 +89,4 @@ In the case of the password strength validation Regex, the ```(?=.*[A-Z])``` for
 
 ## Author
 
-Written by Denysha Guerrios-Armaiz, a software engineer specializing in full-stack web development. To explore open-source projects created by this author please visit: https://github.com/denysha-abigail
+Written by Denysha Guerrios-Armaiz, a software engineer specializing in full-stack web development. To explore projects created by this author please visit: https://github.com/denysha-abigail
