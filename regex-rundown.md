@@ -41,17 +41,23 @@ To satisfy the password strength criteria, a password must contain:
 
 ## Regex Components
 
-### Anchors: ^ $ \b \B
+### Anchors: ^
 
 Anchors do not match any characters, but rather match a position before, after, or between characters. In single-line mode, the ```^``` anchor matches the beginning of the string.
 
 An input of ```abc123``` would pass if tested against the expression ```/^abc/``` because the three letters are positioned at the beginning of the string, in their respective order.
 
-In the case of the password strength validation above, the ```^``` is simply ensuring that a match is positioned at the start of the string. The anchor in this scenario is essentially determining that any syntax component succeeding will pass if inputted at the beginning of the string (whether it be a lowercase, uppercase, numeric, or special character).
+In the case of the password strength validation Regex, the ```^``` is simply ensuring that a match is positioned at the start of the string. The anchor in this scenario is essentially determining that any syntax component succeeding will pass if inputted at the beginning of the string (whether it be a lowercase, uppercase, numeric, or special character).
 
-### Quantifiers: * + ? {}
+### Quantifiers: * {}
 
 Quantifiers specify how many instances of a character, group, or character class an input must have in order for a match to be found. 
+
+The ```*``` quantifier (```*[a-z]```, ```*[A-Z]```, ```*[0-9]```, and ```*[!@#\$%\^&\*]```) matches a password that has 0 or more instances of any syntax component succeeding it. 
+
+A quantifier of ```{8}``` would only match a password of 8 characters in length. A quantifier of ```{8, 16}``` would match any password between 8 and 16 characters.
+
+In the case of the password strength validation Regex, the ```{}``` quantifier (```{8,}```) matches a password that has AT LEAST 8 characters. 
 
 ### OR Operator
 
