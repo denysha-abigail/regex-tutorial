@@ -32,7 +32,7 @@ To satisfy the password strength criteria, a password must contain:
 - [Character Classes](#character-classes)
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Bracket Expressions](#bracket-expressions)
-- [Greedy and Lazy Match](#greedy-and-lazy-match)
+- [Greedy Match](#greedy-match)
 - [Positive Look-ahead](#positive-look-ahead)
 
 ## Regex Components
@@ -55,21 +55,27 @@ A quantifier of ```{8}``` would only match a password of exactly 8 characters in
 
 In the case of the password strength validation Regex, the ```{}``` quantifier (```{8,}```) matches a password that has AT LEAST 8 characters. 
 
-### Character Classes: [A-Z]
+### Character Classes: .
 
 Character classes, or character sets, match any character in the set. 
 
-In the case of the password strength validation Regex, the ```[a-z]```, ```[A-Z]```, and ```[0-9]``` will match characters in those ranges. The ```[!@#\$%\^&\*]``` will match any of the special characters within that set as well.
+In the case of the password strength validation Regex, the ```.``` will match any character.
 
 ### Grouping and Capturing: ()
 
-### Bracket Expressions: []
+Capturing groups allow mulitple characters to be treated as single separate units by encapsulating them inside a set of parantheses. 
+
+In the case of the password strength validation Regex: ```^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})``` notice how the lowercase, uppercase, numeric, special character, and password length validations are all grouped inside their own set of parentheses. This allows more convenient access to the content of specific groups, if necessary.
+
+### Bracket Expressions: [ ]
 
 Bracket expressions are composed of characters and/or character classes encompassed within brackets.
 
-In the case of the password strength validation Regex, bracket expressions include ```[a-z]``` and ```[A-Z]``` which match any character from lowercase ```a``` through ```z``` and uppercase ```A``` through ```Z```, respectively.
+In the case of the password strength validation Regex, bracket expressions include ```[a-z]``` and ```[A-Z]``` which match any character from lowercase ```a``` through ```z``` and uppercase ```A``` through ```Z```, respectively. The ```[!@#\$%\^&\*]``` will match any of the special characters within that set as well.
 
-### Greedy and Lazy Match
+### Greedy Match: * ? {}
+
+The *, ?, and {} quantifiers are recognized as greedy operators due to their default tendency of grasping as many characters as possible for a match.
 
 ### Positive Look-ahead: (?=)
 
@@ -82,6 +88,8 @@ In the case of the password strength validation Regex, bracket expressions inclu
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet
 * https://docs.microsoft.com/en-us/dotnet/standard/base-types/quantifiers-in-regular-expressions
 * https://docs.trendmicro.com/all/ent/imsva/v8.5/en-us/imsva8.5_olh/usg_kw_exp_regexp_brkt.html
+* https://www3.ntu.edu.sg/home/ehchua/programming/howto/Regexe.html
+* https://vhudyma-blog.eu/2020-05-12-capturing-groups-in-regular-expressions/
 
 ## Author
 
