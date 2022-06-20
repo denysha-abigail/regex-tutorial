@@ -29,15 +29,11 @@ To satisfy the password strength criteria, a password must contain:
 
 - [Anchors](#anchors)
 - [Quantifiers](#quantifiers)
-- [OR Operator](#or-operator)
 - [Character Classes](#character-classes)
-- [Flags](#flags)
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Bracket Expressions](#bracket-expressions)
 - [Greedy and Lazy Match](#greedy-and-lazy-match)
-- [Boundaries](#boundaries)
-- [Back-references](#back-references)
-- [Look-ahead and Look-behind](#look-ahead-and-look-behind)
+- [Positive Look-ahead](#positive-look-ahead)
 
 ## Regex Components
 
@@ -55,27 +51,23 @@ Quantifiers specify how many instances of a character, group, or character class
 
 The ```*``` quantifier (```*[a-z]```, ```*[A-Z]```, ```*[0-9]```, and ```*[!@#\$%\^&\*]```) matches a password that has 0 or more instances of any syntax component succeeding it. 
 
-A quantifier of ```{8}``` would only match a password of 8 characters in length. A quantifier of ```{8, 16}``` would match any password between 8 and 16 characters.
+A quantifier of ```{8}``` would only match a password of exactly 8 characters in length. A quantifier of ```{8, 16}``` would match any password between 8 and 16 characters.
 
 In the case of the password strength validation Regex, the ```{}``` quantifier (```{8,}```) matches a password that has AT LEAST 8 characters. 
 
-### OR Operator
+### Character Classes: [A-Z]
 
-### Character Classes
+Character classes, or character sets, match any character in the set. 
 
-### Flags
+In the case of the password strength validation Regex, the ```[a-z]```, ```[A-Z]```, and ```[0-9]``` will match characters in those ranges. The ```[!@#\$%\^&\*]``` will match any of the special characters within that set as well.
 
-### Grouping and Capturing
+### Grouping and Capturing: ()
 
-### Bracket Expressions
+### Bracket Expressions: []
 
 ### Greedy and Lazy Match
 
-### Boundaries
-
-### Back-references
-
-### Look-ahead and Look-behind
+### Positive Look-ahead: (?=)
 
 ### Resources
 * https://regexr.com/
