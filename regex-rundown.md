@@ -52,7 +52,7 @@ In the case of the password strength validation Regex, the ```{}``` quantifier `
 
 Character classes, or character sets, match any character in the set. 
 
-In the case of the password strength validation Regex, the ```.``` will match any character.
+In the case of the password strength validation Regex, the ```.``` before every ```*``` quantifier in ```^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})``` will match any character.
 
 ### Grouping and Capturing
 
