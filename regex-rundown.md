@@ -41,17 +41,17 @@ To satisfy the password strength criteria, a password must contain:
 
 ## Regex Components
 
-### Anchors
+### Anchors: ^ $ \b \B
 
-Anchors do not match any characters, but rather match a position before, after, or between characters. In single-line mode, the ```^``` anchor matches the beginning of the string while the ```$``` anchor matches the end of the string. Word boundaries (```\b```) and non-word boundaries (```\B```) are also considered anchors. While word boundaries identify the empty string at the beginning or end of words, non-word boundaries identify the empty string not at the beginning or end of words (such as between characters or following the punctuation at the end of a sentence, for instance). 
+Anchors do not match any characters, but rather match a position before, after, or between characters. In single-line mode, the ```^``` anchor matches the beginning of the string.
 
-An input of ```abc123``` would pass if tested against the expression ```/^abc/``` because the three letters are positioned at the beginning of the string, in their respective order. However, the same input of ```abc123``` would fail if tested against the expression ```/abc$/``` because the input would indicate that ```123``` is the end of the string rather than ```abc```. If the input was changed to ```123abc``` instead, it would pass because it would satisfy the Regex requirement that ```abc``` needs to be at the end of the string. 
+An input of ```abc123``` would pass if tested against the expression ```/^abc/``` because the three letters are positioned at the beginning of the string, in their respective order.
 
-The input ```stackoverflow``` would fail if tested against the expression ```\bstack\b``` because there is no occurrence of the whole word ```stack``` by itself with no empty spaces before the ```s``` and the ```k```. The input ```foo stack bar``` would pass, however. The input ```abc``` would pass if tested against the expression ```\Bb\B``` because `b` is not surrounded by word boundaries.  
+In the case of the password strength validation above, the ```^``` is simply ensuring that a match is positioned at the start of the string. The anchor in this scenario is essentially determining that any syntax component succeeding will pass if inputted at the beginning of the string (whether it be a lowercase, uppercase, numeric, or special character).
 
-In the case of the password strength validation above, the ```^``` is simply ensuring that a match is positioned at the start of the string. The anchor in this scenario is essentially determining that any syntax component succeeding will pass if inputted at the beginning of the string (whether it be a lowercase, uppercase, numeric, or special character). 
+### Quantifiers: * + ? {}
 
-### Quantifiers
+Quantifiers specify how many instances of a character, group, or character class an input must have in order for a match to be found. 
 
 ### OR Operator
 
@@ -77,8 +77,8 @@ In the case of the password strength validation above, the ```^``` is simply ens
 * https://coding-boot-camp.github.io/full-stack/computer-science/regex-tutorial
 * https://www.thepolyglotdeveloper.com/2015/05/use-regex-to-test-password-strength-in-javascript/
 * https://regexland.com/regex-anchors-a-complete-guide/
-* https://launchschool.com/books/regex/read/anchors
-* https://riptutorial.com/regex/example/6153/word-boundaries
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet
+* https://docs.microsoft.com/en-us/dotnet/standard/base-types/quantifiers-in-regular-expressions
 
 ## Author
 
