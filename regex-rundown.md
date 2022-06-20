@@ -91,4 +91,6 @@ In the case of the password strength validation Regex, the ```(?=.*[A-Z])``` for
 
 ## Author
 
-Written by Denysha Guerrios-Armaiz, a software engineer specializing in full-stack web development. To explore projects created by this author please visit: https://github.com/denysha-abigail
+Written by Denysha Guerrios-Armaiz, a software engineer specializing in full-stack web development. 
+
+To explore projects created by this author please visit: https://github.com/denysha-abigail
