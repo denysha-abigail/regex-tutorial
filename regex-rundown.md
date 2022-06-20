@@ -25,6 +25,8 @@ To satisfy the password strength criteria, a password must contain:
 - [Bracket Expressions](#bracket-expressions)
 - [Greedy Match](#greedy-match)
 - [Positive Lookahead](#positive-lookahead)
+- [Resources](#resources)
+- [Author](#author)
 
 ## Regex Components
 
