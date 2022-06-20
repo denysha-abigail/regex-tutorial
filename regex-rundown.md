@@ -73,23 +73,28 @@ Bracket expressions are composed of characters and/or character classes encompas
 
 In the case of the password strength validation Regex, bracket expressions include ```[a-z]``` and ```[A-Z]``` which match any character from lowercase ```a``` through ```z``` and uppercase ```A``` through ```Z```, respectively. The ```[!@#\$%\^&\*]``` will match any of the special characters within that set as well.
 
-### Greedy Match: * ? {}
+### Greedy Match: .*
 
-The *, ?, and {} quantifiers are recognized as greedy operators due to their default tendency of grasping as many characters as possible for a match.
+All quantifiers (```?```, ```*```, ```+```, ```{m,n}```) are recognized as greedy operators due to their default tendency of grasping as many characters as possible for a match.
 
-### Positive Look-ahead: (?=)
+In the case of the password strength validation Regex, the ```.*``` before every bracket expression will try to match any amount of anything.
+
+### Positive Look-ahead: (?=pattern)
+
+Positive look-aheads are used after a ```^``` anchor in order to validate a condition by triggering each look-ahead one by one at the beginning of the string. 
+
+In the case of the password strength validation Regex, the ```(?=.*[A-Z])``` for example, matches that the password must contain at least one uppercase ASCII letter after any zero or more characters. 
 
 ### Resources
 * https://regexr.com/
 * https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285
-* https://coding-boot-camp.github.io/full-stack/computer-science/regex-tutorial
 * https://www.thepolyglotdeveloper.com/2015/05/use-regex-to-test-password-strength-in-javascript/
 * https://regexland.com/regex-anchors-a-complete-guide/
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet
 * https://docs.microsoft.com/en-us/dotnet/standard/base-types/quantifiers-in-regular-expressions
-* https://docs.trendmicro.com/all/ent/imsva/v8.5/en-us/imsva8.5_olh/usg_kw_exp_regexp_brkt.html
 * https://www3.ntu.edu.sg/home/ehchua/programming/howto/Regexe.html
 * https://vhudyma-blog.eu/2020-05-12-capturing-groups-in-regular-expressions/
+* https://mariusschulz.com/blog/why-using-the-greedy-in-regular-expressions-is-almost-never-what-you-actually-want
+* https://unix.stackexchange.com/questions/672794/regex-what-is-the-use-of-positive-lookahead-at-the-beginning-of-regex
 
 ## Author
 
