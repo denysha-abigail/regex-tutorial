@@ -65,6 +65,10 @@ In the case of the password strength validation Regex, the ```[a-z]```, ```[A-Z]
 
 ### Bracket Expressions: []
 
+Bracket expressions are composed of characters and/or character classes encompassed within brackets.
+
+In the case of the password strength validation Regex, bracket expressions include ```[a-z]``` and ```[A-Z]``` which match any character from lowercase ```a``` through ```z``` and uppercase ```A``` through ```Z```, respectively.
+
 ### Greedy and Lazy Match
 
 ### Positive Look-ahead: (?=)
@@ -77,6 +81,7 @@ In the case of the password strength validation Regex, the ```[a-z]```, ```[A-Z]
 * https://regexland.com/regex-anchors-a-complete-guide/
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet
 * https://docs.microsoft.com/en-us/dotnet/standard/base-types/quantifiers-in-regular-expressions
+* https://docs.trendmicro.com/all/ent/imsva/v8.5/en-us/imsva8.5_olh/usg_kw_exp_regexp_brkt.html
 
 ## Author
 
